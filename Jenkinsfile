@@ -13,7 +13,7 @@ pipeline {
         sh '''sudo apt-get update -qq'''
         sh '''sudo apt-get install -y -qq clang'''
         sh '''sudo apt-get install -y -qq --force-yes libestr-dev libfastjson-dev liblogging-stdlog-dev'''
-        sh '''sudo apt-get install -y gnutls-bin libgnutls-dev'''
+        sh '''sudo apt-get install -y gnutls-bin libgnutls28-dev'''
       }
     }
     stage('Build') {
