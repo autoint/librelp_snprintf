@@ -8,12 +8,12 @@ pipeline {
   stages {
     stage('Infrastructure') {
       steps {
-        sh '''sudo apt-get -y install build-essential automake autoconf-archive pkg-config libtool autoconf autotools-dev gdb valgrind uuid-dev bison flex python-docutils'''
-        sh '''sudo add-apt-repository ppa:adiscon/v8-stable -y'''
-        sh '''sudo apt-get update -qq'''
-        sh '''sudo apt-get install -y -qq clang'''
-        sh '''sudo apt-get install -y -qq --force-yes libestr-dev libfastjson-dev liblogging-stdlog-dev'''
-        sh '''sudo apt-get install -y gnutls-bin libgnutls28-dev'''
+        sh 'sudo apt-get -y install build-essential automake autoconf-archive pkg-config libtool autoconf autotools-dev gdb valgrind uuid-dev bison flex python-docutils'
+        sh 'echo "sudo add-apt-repository ppa:adiscon/v8-stable -y"'
+        sh 'sudo apt-get update -qq'
+        sh 'sudo apt-get install -y -qq clang'
+        sh 'sudo apt-get install -y -qq --force-yes libestr-dev libfastjson-dev liblogging-stdlog-dev'
+        sh 'sudo apt-get install -y gnutls-bin libgnutls28-dev'
       }
     }
     stage('Build') {
