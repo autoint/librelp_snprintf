@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Get Latest
+      run: sudo apt-get update --fix-missing
     - name: Setup Machines
       run:  sudo apt-get -y -qq --force-yes install build-essential automake autoconf-archive pkg-config libtool autoconf autotools-dev gdb valgrind uuid-dev bison flex python-docutils clang
     - name: libs
