@@ -1,0 +1,27 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Machines
+      run:  sudo apt-get -y -qq --force-yes install build-essential automake autoconf-archive pkg-config libtool autoconf autotools-dev gdb valgrind uuid-dev bison flex python-docutils clang
+    - name: libs
+      run:  sudo apt-get install -y -qq  libestr-dev libfastjson-dev liblogging-stdlog-dev
+    - name: gnulibs
+      run:  sudo apt-get install -y gnutls-bin libgnutls28-dev
+    - name: make
+      run: autoreconf -fvi
+    - name: .configure
+      run: ./configure --enable-tls-openssl
+    - name: make
+      run: make
