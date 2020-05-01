@@ -25,7 +25,7 @@ jobs:
       run: autoreconf -fvi
     - name: .configure
       run: ./configure --enable-tls-openssl
-    - uses: Anthophila/codeql-action/codeql/init@master
+    - uses: github/codeql-action/codeql/init@v1
     - name: make
       run: make
-    - uses: Anthophila/codeql-action/codeql/finish@master
+    - uses: github/codeql-action/codeql/finish@v1
